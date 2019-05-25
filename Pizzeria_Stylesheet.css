@@ -1,0 +1,368 @@
+pizzeria:before {
+    display: block;
+    width: 8em;
+    font-weight: bold;
+    font-size: 200%;
+    -webkit-text-fill-color: white;
+    font-family: 'Kanit', sans-serif;
+    text-align: center;
+    content: "• PIZZERIA •";
+    margin: -.75em auto 0 auto;
+    padding: .1em .25em;
+    background-color: #474747;
+    border-radius: .75em;
+}
+
+pizzeria{
+    display: block;
+  margin: 2em 8em;
+  border: 16px solid #474747;
+  padding: 0px 1em;
+  background-color: #dfdfdf;
+}   
+
+pizzas:before {
+    display: block;
+    width: 5.5em;
+    font-weight: bold;
+    font-size: 150%;
+    content: "🍕 PIZZAS";
+    font-family: 'Exo 2', sans-serif;
+    margin: -.75em 0px .25em -.8em;
+    padding: .1em .25em;
+    background-color: #f7bc27;
+    border-radius: 0 .75em .75em 0;
+    }
+
+pizzas{
+
+    display: block;
+    margin: 2em 1em;
+    border: 4px solid #f7bc27;
+    padding: 1em 1em;
+    background-color: #c3720f;
+}
+
+pizza{
+    display: block;
+    margin: 1.5em 1.5em;
+    padding: 0px 1em;
+    background-color: #db3b2f;
+    margin-bottom: 1em;
+}
+
+pizza_name{
+    display: block;
+    background-color:#a41f15;
+    border-radius: 0 0 .75em 0;
+    width: 5.5em;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    margin: .5em .8em .4em -.9em;
+    padding: .5em .5em .5em -.25em;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 150%;
+}
+
+topping{
+    display: inline;
+    font-weight: bold;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 120%;
+    padding: 1em .25em;
+}
+
+topping:before{
+    content: "• ";
+    font-family: 'Exo 2', sans-serif;
+}
+
+beverages:before {
+    display: block;
+    width: 8em;
+    font-weight: bold;
+    font-size: 150%;
+    font-family: 'Exo 2', sans-serif;
+    content: "🥤 BEVARAGES";
+    margin: -.75em 0px .25em -.8em;
+    padding: .1em .25em;
+    background-color: #f7bc27;
+    border-radius: 0 .75em .75em 0;
+    }
+
+beverages{
+
+    display: block;
+  margin: 2em 1em;
+  border: 4px solid #f7bc27;
+  padding: 0px 1em;
+  background-color: #c3720f;
+}
+
+beverage{
+    display: block;
+    margin: 1.5em 1.5em;
+    padding: 0px 1em;
+    background-color: #cfec51;
+    margin-bottom: 1em;
+}
+
+beverage_name{
+    display: block;
+    background-color:#67b037;
+    border-radius: 0 0 .75em 0;
+    width: 5.5em;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    margin: .5em .8em .4em -.9em;
+    padding: .5em .5em .5em -.25em;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 150%;
+}
+price:before{
+    content: "Price: ";
+    font-size: 70%;
+}
+price{
+    display: inline;
+    font-weight: bold;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 150%;
+    padding: 1em .25em;
+}
+price:after{
+    content: " PLN";
+    font-size: 70%;
+}
+units:before{
+    
+    content: "In Stock: ";
+    font-size: 70%;
+
+}
+units:after{
+    
+    content: " Units";
+    font-size: 70%;
+
+}
+units{
+    display: inline;
+    font-weight: bold;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 150%;
+    padding: 1em .25em;
+}
+
+job_positions:before {
+    display: block;
+    width: 10em;
+    font-weight: bold;
+    font-size: 150%;
+    font-family: 'Exo 2', sans-serif;
+    content: "⚙️ JOB POSITIONS";
+    margin: -.75em 0px .25em -.8em;
+    padding: .1em .25em;
+    background-color: #f7bc27;
+    border-radius: 0 .75em .75em 0;
+    }
+
+job_positions{
+
+    display: block;
+    margin: 2em 1em;
+    border: 4px solid #f7bc27;
+    padding: 1em 1em;
+    background-color: #c3720f;  
+}
+
+job_position{
+    display: block;
+    margin: 1.5em 1.5em;
+    padding: 0px 1em;
+    background-color: #93eee8;
+    margin-bottom: 1em;
+}
+
+position_name{
+    display: block;
+    background-color:#4b94aa;
+    border-radius: 0 0 .75em 0;
+    width: 10em;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    margin: .5em .8em .4em -.9em;
+    padding: .5em .5em .5em -.25em;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 150%;
+}
+
+position_description:before{
+    content: "Description: ";
+    font-size: 70%;
+}
+position_description{
+    display: inline;
+    font-weight: bold;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 120%;
+    padding: 1em .25em;
+}
+
+employees:before {
+    display: block;
+    width: 8em;
+    font-weight: bold;
+    font-size: 150%;
+    font-family: 'Exo 2', sans-serif;
+    content: "🤵 EMPLOYEES";
+    margin: -.75em 0px .25em -.8em;
+    padding: .1em .25em;
+    background-color: #f7bc27;
+    border-radius: 0 .75em .75em 0;
+    }
+employees{
+
+    display: block;
+    margin: 2em 1em;
+    border: 4px solid #f7bc27;
+    padding: 0px 1em;
+    background-color: #c3720f;
+}
+
+employee{
+    display: block;
+    margin: 1.5em 1.5em;
+    padding: 10px 10px;
+    background-color: #cec2f6;
+    margin-bottom: 1em;
+    
+}
+
+name{
+    display: block;
+    background-color:#6950bc;
+    border-radius: 0 0 .75em 0;
+    width: 5.5em;
+    -webkit-text-fill-color: white;
+    text-align: center;
+    margin: -.55em .8em .4em -.9em;
+    padding: .5em .5em .5em -.25em;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+surname:before{
+    content: "Surname: ";
+    -webkit-text-fill-color: rgb(59, 59, 59);
+}
+surname{
+    display: block;
+    border-bottom: 4px solid #8d73e3;
+    width: 25em;
+    -webkit-text-fill-color: black;
+    margin: .5em .8em .4em .9em;
+    padding: 0px 10px;;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+
+salary:before{
+    content: "Salary: ";
+    -webkit-text-fill-color: rgb(59, 59, 59);
+}
+salary{
+    display: block;
+    border-bottom: 4px solid #8d73e3;
+    width: 25em;
+    -webkit-text-fill-color: black;
+    margin: .5em .8em .4em .9em;
+    padding: 0px 10px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+
+employment_date:before{
+    content: "Employment Date: ";
+    -webkit-text-fill-color: rgb(59, 59, 59);
+}
+employment_date{
+    display: block;
+    border-bottom: 4px solid #8d73e3;
+    width: 25em;
+    -webkit-text-fill-color: black;
+    margin: .5em .8em .4em .9em;
+    padding: 0px 10px;;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+
+e_mail:before{
+    content: "E-Mail: ";
+    -webkit-text-fill-color: rgb(59, 59, 59);
+}
+e_mail{
+    display: block;
+    border-bottom: 4px solid #8d73e3;
+    width: 25em;
+    -webkit-text-fill-color: black;
+    margin: .5em .8em .4em .9em;
+    padding: 0px 10px;;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+
+phone_number:before{
+    content: "Phone Number: ";
+    -webkit-text-fill-color: rgb(59, 59, 59);
+}
+phone_number{
+    display: block;
+    border-bottom: 4px solid #8d73e3;
+    width: 25em;
+    -webkit-text-fill-color: black;
+    margin: .5em .8em .4em .9em;
+    padding: 0px 10px;;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+
+personal_No:before{
+    content: "Peronal Number: ";
+    -webkit-text-fill-color: rgb(59, 59, 59);
+}
+personal_No{
+    display: block;
+    border-bottom: 4px solid #8d73e3;
+    width: 25em;
+    -webkit-text-fill-color: black;
+    margin: .5em .8em .4em .9em;
+    padding: 0px 10px;;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    line-height: 1.5em;
+    font-size: 110%;
+}
+
+
+
+
+
+

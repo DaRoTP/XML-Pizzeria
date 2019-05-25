@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="Pizzeria_Stylesheet.css" ?>
 
 <pizzeria>
 
     <pizzas>
 
-        <pizza name="Pepperoni" type="spicy"> 
+        <pizza ID="PPni" type="spicy"> 
+            <pizza_name>Pepperoni</pizza_name>
             <topping>cheese</topping>
             <topping>tomato</topping>
             <topping>basil</topping>
             <topping>pepperoni</topping>
         </pizza>
 
-        <pizza name="Skrigatto" type="seafood"> 
+        <pizza ID="Sktt" type="seafood"> 
+            <pizza_name>Skrigatto</pizza_name>
             <topping>cheese</topping>
             <topping>tomato</topping>
             <topping>fish</topping>
@@ -21,32 +24,25 @@
 
     <beverages>
 
-        <beverage name="Coca-Cola">
+        <beverage ID="CC">
+            <beverage_name>Coca-Cola</beverage_name>
             <price currency="PLN">4</price>
             <units>50</units>
         </beverage>
 
-        <beverage name="Fanta">
+        <beverage ID="FA">
+            <beverage_name>Fanta</beverage_name>
             <price currency="PLN">4</price>
             <units>45</units>
         </beverage>
 
-        <beverage name="Sprite">
+        <beverage ID="ST">
+            <beverage_name>Sprite</beverage_name>
             <price currency="PLN">4</price>
             <units>12</units>
         </beverage>
 
     </beverages>
-
-    <promo_codes>
-
-        <promo_code code="25%OFF">25</promo_code>
-        <promo_code code="FREE">100</promo_code>
-        <promo_code code="15%OFF">15</promo_code>
-        <promo_code code="Half">50</promo_code>
-        <promo_code code="POOR">2</promo_code>
-
-    </promo_codes>
 
     <job_positions>
 
