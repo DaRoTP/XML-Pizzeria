@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pizzeria>
+
+    <pizzas>
+
+        <pizza name="Pepperoni" type="spicy"> 
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>basil</topping>
+            <topping>pepperoni</topping>
+        </pizza>
+
+        <pizza name="Skrigatto" type="seafood"> 
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>fish</topping>
+        </pizza>
+
+    </pizzas>
+
+    <beverages>
+
+        <beverage name="Coca-Cola">
+            <price currency="PLN">4</price>
+            <units>50</units>
+        </beverage>
+
+        <beverage name="Fanta">
+            <price currency="PLN">4</price>
+            <units>45</units>
+        </beverage>
+
+        <beverage name="Sprite">
+            <price currency="PLN">4</price>
+            <units>12</units>
+        </beverage>
+
+    </beverages>
+
+    <promo_codes>
+
+        <promo_code code="25%OFF">25</promo_code>
+        <promo_code code="FREE">100</promo_code>
+        <promo_code code="15%OFF">15</promo_code>
+        <promo_code code="Half">50</promo_code>
+        <promo_code code="POOR">2</promo_code>
+
+    </promo_codes>
+
+    <job_positions>
+
+        <job_position positionID="PMk">
+            <position_name>Pizza maker</position_name>
+            <position_description>Responsible for baking pizzas</position_description>
+        </job_position>
+
+        <job_position positionID="DPs">
+            <position_name>Delivery Person</position_name>
+            <position_description>Responsible for delivering pizzas to designated destinations</position_description>
+        </job_position>
+
+        <job_position positionID="OWr">
+            <position_name>Owner</position_name>
+            <position_description>Responsible for finances, new employee recruitment</position_description>
+        </job_position>
+
+    </job_positions>
+
+    <employees>
+
+        <employee>
+            <name>Mark</name>
+            <surname>Maxwell</surname>
+            <personal_No>11998809148</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>MarWell@gemail.jp</e_mail>
+            <employment_date>2018/12/18</employment_date>
+            <salary currency="PLN">3955</salary>
+            <job_position refid="PMk"/>
+        </employee>
+
+    </employees>
+    
+
+</pizzeria>
