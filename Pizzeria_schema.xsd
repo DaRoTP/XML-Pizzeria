@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- -=-=-==-=-=- ATTRIBUTE =-=-=-= -->
+
+    <xs:simpleType name="IDtype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="Currencytype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:attribute name="refid">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+
+    <xs:attribute name="pizza_type">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <xs:attribute name="positionID">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+
+    <!-- -=-=-==-=-=- SimpleType =-=-=-= -->
+    <xs:simpleType name="stringtype">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="inttype">
+        <xs:restriction base="xs:positiveInteger"/>
+    </xs:simpleType>
+
+    <xs:simpleType name="dateType">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+
+    <!-- -=-=-==-=-=- COMPLEXTYPE =-=-=-= -->
+
+
+    <!-- EMPLOYEE -->
+    <xs:complexType name="phone_numberType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="prefix" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="employeetype">
+        <xs:sequence>
+            <xs:element name="name" type="stringtype" />
+            <xs:element name="surname" type="stringtype" />
+            <xs:element name="personal_No" type="stringtype" />
+            <xs:element name="phone_number" type="phone_numberType" />
+            <xs:element name="e_mail" type="stringtype" />
+            <xs:element name="employment_date" type="dateType"/>
+            <xs:element name="salary" type="priceType"/>
+            <xs:element name="positionID" type="IDtype"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="employeestype">
+        <xs:sequence>
+            <xs:element name="employee" type="employeetype" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- JOB POSITION -->
+    <xs:complexType name="job_positiontype">
+        <xs:sequence>
+            <xs:element name="position_name" type="stringtype" />
+            <xs:element name="position_description" type="stringtype" />
+        </xs:sequence>
+        <xs:attribute  ref="positionID" />
+    </xs:complexType>
+
+    <xs:complexType name="job_positionstype">
+        <xs:sequence>
+            <xs:element name="job_position" type="job_positiontype" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- BEVERAGES -->
+    <xs:complexType name="priceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="currency" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="beveragetype">
+        <xs:sequence>
+            <xs:element name="beverage_name" type="stringtype"/>
+            <xs:element name="price" type="priceType" />
+            <xs:element name="units" type="inttype" />
+        </xs:sequence>
+        <xs:attribute  name="beverageID" type="IDtype" />
+    </xs:complexType>
+
+    <xs:complexType name="beveragestype">
+        <xs:sequence>
+            <xs:element name="beverage" type="beveragetype" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- PIZZAS -->
+    <xs:complexType name="pizzaType">
+        <xs:sequence>
+            <xs:element name="pizza_name" type="stringtype" />
+            <xs:element name="topping" type="stringtype" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute  name="pizzaID" type="IDtype" />
+        <xs:attribute  name="pizza_type" type="stringtype" />
+    </xs:complexType>
+
+    <xs:complexType name="pizzasType">
+        <xs:sequence>
+            <xs:element name="pizza" type="pizzaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="pizzeriaType">
+        <xs:all>
+            <xs:element name="pizzas" type="pizzasType" />
+            <xs:element name="beverages" type="beveragestype"/>
+            <xs:element name="job_positions" type="job_positionstype"/>
+            <xs:element name="employees" type="employeestype"/>
+        </xs:all>
+    </xs:complexType>
+
+    <xs:element name="pizzeria" type="pizzeriaType"/>
+
+    <xs:key name="positonKey">
+        <xs:selector xpath=".//job_positions/job_position"/>
+        <xs:field xpath="@positionID"/>
+    </xs:key>
+
+    <xs:keyref name="positionsIdRef" refer="positonKey">
+        <xs:selector xpath=".//employees/employee/positionID"/>
+        <xs:field xpath="@refid"/>
+    </xs:keyref>
+
+
+</xs:schema>

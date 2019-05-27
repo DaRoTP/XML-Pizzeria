@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="Pizzeria_Stylesheet.css" ?>
+<!--<?xml-stylesheet type="text/css" href="Pizzeria_Stylesheet.css" ?>-->
+<!--<!DOCTYPE pizzeria SYSTEM "PizzeriaDTD.dtd">-->
 
 <pizzeria>
 
     <pizzas>
 
-        <pizza ID="PPni" type="spicy"> 
+        <pizza pizzaID="PPni" pizza_type="spicy">
             <pizza_name>Pepperoni</pizza_name>
             <topping>cheese</topping>
             <topping>tomato</topping>
@@ -13,52 +14,211 @@
             <topping>pepperoni</topping>
         </pizza>
 
-        <pizza ID="Sktt" type="seafood"> 
+        <pizza pizzaID="Sktt" pizza_type="seafood">
             <pizza_name>Skrigatto</pizza_name>
             <topping>cheese</topping>
             <topping>tomato</topping>
             <topping>fish</topping>
         </pizza>
 
+        <pizza pizzaID="AKlk" pizza_type="spicy">
+            <pizza_name>Akapulko</pizza_name>
+            <topping>farm cheese</topping>
+            <topping>tomato</topping>
+            <topping>salami</topping>
+            <topping>jalapeno</topping>
+            <topping>beef</topping>
+        </pizza>
+
+        <pizza pizzaID="ASrj" pizza_type="spicy">
+            <pizza_name>Astroji</pizza_name>
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>chalapo paprika</topping>
+            <topping>ham</topping>
+            <topping>smoked paprika</topping>
+        </pizza>
+
+        <pizza pizzaID="CHzo" pizza_type="mild">
+            <pizza_name>Chorizo</pizza_name>
+            <topping>ferment cheese</topping>
+            <topping>tomato</topping>
+            <topping>chorizo sausage</topping>
+        </pizza>
+
+        <pizza pizzaID="EGzz" pizza_type="seafood">
+            <pizza_name>Egzotik</pizza_name>
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>ham</topping>
+            <topping>pineapple</topping>
+        </pizza>
+
+        <pizza pizzaID="SpCh" pizza_type="chicken">
+            <pizza_name>Special with chicken</pizza_name>
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>chicken</topping>
+            <topping>ham</topping>
+            <topping>mushrooms</topping>
+            <topping>special sauce</topping>
+        </pizza>
+
+        <pizza pizzaID="Grji" pizza_type="mild">
+            <pizza_name>Gardzioji</pizza_name>
+            <topping>cheese</topping>
+            <topping>ham</topping>
+            <topping>bacon</topping>
+            <topping>onion</topping>
+        </pizza>
+
+        <pizza pizzaID="Guno" pizza_type="mild">
+            <pizza_name>Grumano</pizza_name>
+            <topping>farm cheese</topping>
+            <topping>tomato</topping>
+            <topping>salami</topping>
+            <topping>ham</topping>
+            <topping>bacon</topping>
+            <topping>onion</topping>
+        </pizza>
+
+        <pizza pizzaID="FaVl" pizza_type="mild">
+            <pizza_name>FarmVill</pizza_name>
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>paprika</topping>
+            <topping>ham</topping>
+            <topping>smoked paprika</topping>
+            <topping>onion</topping>
+            <topping>jalapeno</topping>
+        </pizza>
+
+        <pizza pizzaID="SaLs" pizza_type="spicy">
+            <pizza_name>Salsa</pizza_name>
+            <topping>ferment cheese</topping>
+            <topping>tomato</topping>
+            <topping>salsa sauce</topping>
+            <topping>chicken</topping>
+            <topping>ham</topping>
+        </pizza>
+
+        <pizza pizzaID="Seno" pizza_type="seafood">
+            <pizza_name>Serano</pizza_name>
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>ham</topping>
+            <topping>plumbs</topping>
+            <topping>basil</topping>
+        </pizza>
+
     </pizzas>
 
     <beverages>
 
-        <beverage ID="CC">
+        <beverage beverageID="CoCo">
             <beverage_name>Coca-Cola</beverage_name>
             <price currency="PLN">4</price>
             <units>50</units>
         </beverage>
 
-        <beverage ID="FA">
+        <beverage beverageID="FaTa">
             <beverage_name>Fanta</beverage_name>
             <price currency="PLN">4</price>
             <units>45</units>
         </beverage>
 
-        <beverage ID="ST">
+        <beverage beverageID="SpTe">
             <beverage_name>Sprite</beverage_name>
             <price currency="PLN">4</price>
             <units>12</units>
+        </beverage>
+
+        <beverage beverageID="Frey">
+            <beverage_name>Freeway</beverage_name>
+            <price currency="PLN">3.99</price>
+            <units>21</units>
+        </beverage>
+
+        <beverage beverageID="Supp">
+            <beverage_name>7UP</beverage_name>
+            <price currency="PLN">4.5</price>
+            <units>99</units>
+        </beverage>
+
+        <beverage beverageID="Mira">
+            <beverage_name>Mirinda</beverage_name>
+            <price currency="PLN">2.95</price>
+            <units>12</units>
+        </beverage>
+
+        <beverage beverageID="Ppsi">
+            <beverage_name>Pepsi</beverage_name>
+            <price currency="PLN">4</price>
+            <units>75</units>
+        </beverage>
+
+        <beverage beverageID="IcTi">
+            <beverage_name>ICE-TEA</beverage_name>
+            <price currency="PLN">2.99</price>
+            <units>96</units>
+        </beverage>
+
+        <beverage beverageID="SpWt">
+            <beverage_name>Spring Water</beverage_name>
+            <price currency="PLN">2</price>
+            <units>112</units>
+        </beverage>
+
+        <beverage beverageID="MnsT">
+            <beverage_name>Monster</beverage_name>
+            <price currency="PLN">6</price>
+            <units>12</units>
+        </beverage>
+
+        <beverage beverageID="ApJS">
+            <beverage_name>Apple Juice</beverage_name>
+            <price currency="PLN">4.5</price>
+            <units>30</units>
+        </beverage>
+
+        <beverage beverageID="CrWr">
+            <beverage_name>Carbonated Water</beverage_name>
+            <price currency="PLN">2.3</price>
+            <units>99</units>
         </beverage>
 
     </beverages>
 
     <job_positions>
 
-        <job_position positionID="PMk">
+        <job_position positionID="PMkk">
             <position_name>Pizza maker</position_name>
             <position_description>Responsible for baking pizzas</position_description>
         </job_position>
 
-        <job_position positionID="DPs">
+        <job_position positionID="DPss">
             <position_name>Delivery Person</position_name>
             <position_description>Responsible for delivering pizzas to designated destinations</position_description>
         </job_position>
 
-        <job_position positionID="OWr">
+        <job_position positionID="OWrr">
             <position_name>Owner</position_name>
             <position_description>Responsible for finances, new employee recruitment</position_description>
+        </job_position>
+
+        <job_position positionID="CSHh">
+            <position_name>Cashier</position_name>
+            <position_description>Responsible for taking orders from customers and taking money for the order</position_description>
+        </job_position>
+
+        <job_position positionID="Addd">
+            <position_name>Administrator</position_name>
+            <position_description>Responsible for administrating website</position_description>
+        </job_position>
+
+        <job_position positionID="MnGG">
+            <position_name>Manager</position_name>
+            <position_description>Responsible for taking in customer complaints and managing the restaurant in owners absence</position_description>
         </job_position>
 
     </job_positions>
@@ -71,12 +231,133 @@
             <personal_No>11998809148</personal_No>
             <phone_number prefix="PL">861245639</phone_number>
             <e_mail>MarWell@gemail.jp</e_mail>
-            <employment_date>2018/12/18</employment_date>
+            <employment_date>2018-12-18</employment_date>
             <salary currency="PLN">3955</salary>
-            <job_position refid="PMk"/>
+            <positionID refid="PMkk"/>
         </employee>
 
+        <employee>
+            <name>Michael</name>
+            <surname>Jackson</surname>
+            <personal_No>11998809100</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>YeeeHa@gmail.com</e_mail>
+            <employment_date>2018-12-14</employment_date>
+            <salary currency="PLN">4500</salary>
+            <positionID refid="PMkk"/>
+        </employee>
+
+        <employee>
+            <name>Margery</name>
+            <surname>Tyrel</surname>
+            <personal_No>11998855524</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>House@gmail.com</e_mail>
+            <employment_date>2015-11-02</employment_date>
+            <salary currency="PLN">2699</salary>
+            <positionID refid="PMkk"/>
+        </employee>
+
+        <employee>
+            <name>Shaq</name>
+            <surname>Oneal</surname>
+            <personal_No>98998809158</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>ShaquelOneal@gmail.com</e_mail>
+            <employment_date>2017-04-18</employment_date>
+            <salary currency="PLN">4500</salary>
+            <positionID refid="PMkk"/>
+        </employee>
+
+        <employee>
+            <name>Jack</name>
+            <surname>Black</surname>
+            <personal_No>16998809188</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>JackSparrow@gmail.com</e_mail>
+            <employment_date>2018-05-08</employment_date>
+            <salary currency="PLN">1500</salary>
+            <positionID refid="DPss"/>
+        </employee>
+
+        <employee>
+            <name>Julia</name>
+            <surname>Roberts</surname>
+            <personal_No>31998803300</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>Juliana@gmail.com</e_mail>
+            <employment_date>2018-06-15</employment_date>
+            <salary currency="PLN">4566</salary>
+            <positionID refid="DPss"/>
+        </employee>
+
+        <employee>
+            <name>Patricia</name>
+            <surname>Beckinsale</surname>
+            <personal_No>11997809067</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>Patriaaa89@gmail.com</e_mail>
+            <employment_date>2019-04-18</employment_date>
+            <salary currency="PLN">3955</salary>
+            <positionID refid="DPss"/>
+        </employee>
+
+        <employee>
+            <name>Darius</name>
+            <surname>Brown</surname>
+            <personal_No>21998809228</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>DaBrown@gmail.com</e_mail>
+            <employment_date>2018-12-12</employment_date>
+            <salary currency="PLN">3955</salary>
+            <positionID refid="OWrr"/>
+        </employee>
+
+        <employee>
+            <name>Robert</name>
+            <surname>Deniro</surname>
+            <personal_No>19998809668</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>Roberto@gmail.com</e_mail>
+            <employment_date>2018-06-28</employment_date>
+            <salary currency="PLN">3955</salary>
+            <positionID refid="CSHh"/>
+        </employee>
+
+        <employee>
+            <name>Lucas</name>
+            <surname>Greggs</surname>
+            <personal_No>21998809198</personal_No>
+            <phone_number prefix="PL">861245639</phone_number>
+            <e_mail>LucasFIlms@Gmail.com</e_mail>
+            <employment_date>2018-04-01</employment_date>
+            <salary currency="PLN">1500</salary>
+            <positionID refid="CSHh"/>
+        </employee>
+
+        <employee>
+            <name>Tom</name>
+            <surname>Holland</surname>
+            <personal_No>61998809558</personal_No>
+            <phone_number prefix="PL">861245042</phone_number>
+            <e_mail>TomHol@gmail.com</e_mail>
+            <employment_date>2018-12-19</employment_date>
+            <salary currency="PLN">4000</salary>
+            <positionID refid="Addd"/>
+        </employee>
+
+        <employee>
+            <name>Tom</name>
+            <surname>Ellis</surname>
+            <personal_No>6199880908</personal_No>
+            <phone_number prefix="PL">861245856</phone_number>
+            <e_mail>LuciTom@gmail.com</e_mail>
+            <employment_date>2016-11-09</employment_date>
+            <salary currency="PLN">5000</salary>
+            <positionID refid="MnGG"/>
+        </employee>
+
+
     </employees>
-    
 
 </pizzeria>
