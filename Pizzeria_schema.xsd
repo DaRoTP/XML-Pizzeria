@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
-    <!-- -=-=-==-=-=- ATTRIBUTE =-=-=-= -->
-
-    <xs:simpleType name="IDtype">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
-
-    <xs:simpleType name="Currencytype">
-        <xs:restriction base="xs:string"/>
-    </xs:simpleType>
-
-    <xs:attribute name="refid">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:attribute>
-
-
-    <xs:attribute name="pizza_type">
-        <xs:simpleType>
-            <xs:restriction base="xs:string">
-            </xs:restriction>
-        </xs:simpleType>
-    </xs:attribute>
-
     <xs:attribute name="positionID">
         <xs:simpleType>
             <xs:restriction base="xs:string">
@@ -33,7 +8,21 @@
         </xs:simpleType>
     </xs:attribute>
 
-    <!-- -=-=-==-=-=- SimpleType =-=-=-= -->
+    <xs:attribute name="refid">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:attribute>
+    
+    <xs:complexType name="refidType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute ref="refid"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:simpleType name="stringtype">
         <xs:restriction base="xs:string"/>
     </xs:simpleType>
@@ -46,11 +35,15 @@
         <xs:restriction base="xs:date"/>
     </xs:simpleType>
 
-    <!-- -=-=-==-=-=- COMPLEXTYPE =-=-=-= -->
+    <xs:complexType name="priceType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="currency" type="xs:string"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
 
-
-    <!-- EMPLOYEE -->
-    <xs:complexType name="phone_numberType">
+    <xs:complexType name="phoneNumberType">
         <xs:simpleContent>
             <xs:extension base="xs:string">
                 <xs:attribute name="prefix" type="xs:string"/>
@@ -63,11 +56,11 @@
             <xs:element name="name" type="stringtype" />
             <xs:element name="surname" type="stringtype" />
             <xs:element name="personal_No" type="stringtype" />
-            <xs:element name="phone_number" type="phone_numberType" />
+            <xs:element name="phone_number" type="phoneNumberType" />
             <xs:element name="e_mail" type="stringtype" />
             <xs:element name="employment_date" type="dateType"/>
             <xs:element name="salary" type="priceType"/>
-            <xs:element name="positionID" type="IDtype"/>
+            <xs:element name="positionID" type="refidType"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -77,7 +70,6 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- JOB POSITION -->
     <xs:complexType name="job_positiontype">
         <xs:sequence>
             <xs:element name="position_name" type="stringtype" />
@@ -92,22 +84,13 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- BEVERAGES -->
-    <xs:complexType name="priceType">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="currency" type="xs:string"/>
-            </xs:extension>
-        </xs:simpleContent>
-    </xs:complexType>
-
     <xs:complexType name="beveragetype">
         <xs:sequence>
             <xs:element name="beverage_name" type="stringtype"/>
             <xs:element name="price" type="priceType" />
             <xs:element name="units" type="inttype" />
         </xs:sequence>
-        <xs:attribute  name="beverageID" type="IDtype" />
+        <xs:attribute  name="beverageID" type="stringtype" />
     </xs:complexType>
 
     <xs:complexType name="beveragestype">
@@ -116,13 +99,12 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- PIZZAS -->
     <xs:complexType name="pizzaType">
         <xs:sequence>
             <xs:element name="pizza_name" type="stringtype" />
             <xs:element name="topping" type="stringtype" maxOccurs="unbounded" />
         </xs:sequence>
-        <xs:attribute  name="pizzaID" type="IDtype" />
+        <xs:attribute  name="pizzaID" type="stringtype" />
         <xs:attribute  name="pizza_type" type="stringtype" />
     </xs:complexType>
 
@@ -141,17 +123,17 @@
         </xs:all>
     </xs:complexType>
 
-    <xs:element name="pizzeria" type="pizzeriaType"/>
+    <xs:element name="pizzeria" type="pizzeriaType">
 
     <xs:key name="positonKey">
         <xs:selector xpath=".//job_positions/job_position"/>
         <xs:field xpath="@positionID"/>
     </xs:key>
 
-    <xs:keyref name="positionsIdRef" refer="positonKey">
+    <xs:keyref name="positionsIDRef" refer="positonKey">
         <xs:selector xpath=".//employees/employee/positionID"/>
         <xs:field xpath="@refid"/>
     </xs:keyref>
-
+    </xs:element>
 
 </xs:schema>
