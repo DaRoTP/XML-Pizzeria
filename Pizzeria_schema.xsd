@@ -43,6 +43,12 @@
         </xs:simpleContent>
     </xs:complexType>
 
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[_\-a-zA-Z0-9\.\+]+@[a-zA-Z0-9](\.?[\-a-zA-Z0-9]*[a-zA-Z0-9])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:complexType name="phoneNumberType">
         <xs:simpleContent>
             <xs:extension base="xs:string">
@@ -57,7 +63,7 @@
             <xs:element name="surname" type="stringtype" />
             <xs:element name="personal_No" type="stringtype" />
             <xs:element name="phone_number" type="phoneNumberType" />
-            <xs:element name="e_mail" type="stringtype" />
+            <xs:element name="e_mail" type="emailType" />
             <xs:element name="employment_date" type="dateType"/>
             <xs:element name="salary" type="priceType"/>
             <xs:element name="positionID" type="refidType"/>
@@ -125,15 +131,15 @@
 
     <xs:element name="pizzeria" type="pizzeriaType">
 
-    <xs:key name="positonKey">
-        <xs:selector xpath=".//job_positions/job_position"/>
-        <xs:field xpath="@positionID"/>
-    </xs:key>
+        <xs:key name="positonKey">
+            <xs:selector xpath=".//job_positions/job_position"/>
+            <xs:field xpath="@positionID"/>
+        </xs:key>
 
-    <xs:keyref name="positionsIDRef" refer="positonKey">
-        <xs:selector xpath=".//employees/employee/positionID"/>
-        <xs:field xpath="@refid"/>
-    </xs:keyref>
+        <xs:keyref name="positionsIDRef" refer="positonKey">
+            <xs:selector xpath=".//employees/employee/positionID"/>
+            <xs:field xpath="@refid"/>
+        </xs:keyref>
     </xs:element>
 
 </xs:schema>

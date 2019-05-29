@@ -1,10 +1,10 @@
 <!ATTLIST pizza pizzaID ID                          #REQUIRED>
-<!ATTLIST pizza type                                #REQUIRED>
+<!ATTLIST pizza type    CDATA                       #REQUIRED>
 <!ATTLIST beverage beverageID ID                    #REQUIRED>
-<!ATTLIST price currency    (PLN|EUR|USD)   "PLN"   #REQUIRED>
+<!ATTLIST price currency    (PLN|EUR|USD)   "PLN"            >
 <!ATTLIST job_position positionID ID                #REQUIRED>
-<!ATTLIST phone_number prefix                       #REQUIRED>
-<!ATTLIST salary currency   (PLN|EUR|USD)   "PLN"   #REQUIRED>
+<!ATTLIST phone_number prefix   CDATA               #REQUIRED>
+<!ATTLIST salary currency   (PLN|EUR|USD)   "PLN"            >
 <!ATTLIST job_position  refid   IDREF               #REQUIRED>
 
 <!ELEMENT pizzeria              (pizzas, beverages, job_positions, employees)>
