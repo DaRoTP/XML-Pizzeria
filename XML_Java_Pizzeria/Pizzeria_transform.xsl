@@ -103,6 +103,7 @@
                             <xsl:value-of select="topping[2]"/>
                             <span>, </span>
                             <xsl:value-of select="topping[3]"/>
+                            <span>, </span>
                             <xsl:value-of select="topping[4]"/>
                         </td>
                     </tr>

@@ -1,0 +1,34 @@
+<!ATTLIST pizza pizzaID ID                          #REQUIRED>
+<!ATTLIST pizza type    CDATA                       #REQUIRED>
+<!ATTLIST beverage beverageID ID                    #REQUIRED>
+<!ATTLIST price currency    (PLN|EUR|USD)   "PLN"            >
+<!ATTLIST job_position positionID ID                #REQUIRED>
+<!ATTLIST employee employeeID ID                    #REQUIRED>
+<!ATTLIST phone_number prefix   CDATA               #REQUIRED>
+<!ATTLIST salary currency   (PLN|EUR|USD)   "PLN"            >
+<!ATTLIST job_position  refid   IDREF               #REQUIRED>
+
+<!ELEMENT pizzeria              (pizzas, beverages, job_positions, employees)>
+<!ELEMENT pizzas                (pizza+)>
+<!ELEMENT pizza                 (pizza_name, topping+)>
+<!ELEMENT topping               (#PCDATA)>
+<!ELEMENT pizza_name            (#PCDATA)>
+<!ELEMENT beverages             (beverage*)>
+<!ELEMENT beverage              (beverage_name,price,units)>
+<!ELEMENT beverage_name         (#PCDATA)>
+<!ELEMENT price                 (#PCDATA)>
+<!ELEMENT units                 (#PCDATA)>
+<!ELEMENT job_positions         (job_position+)>
+<!ELEMENT job_position          (position_name,position_description)>
+<!ELEMENT position_name         (#PCDATA)>
+<!ELEMENT position_description  (#PCDATA)>
+<!ELEMENT employees             (employee+)>
+<!ELEMENT employee          (name,surname,personal_No,phone_number,e_mail,employment_date,salary,job_position)>
+<!ELEMENT name              (#PCDATA)>
+<!ELEMENT surname           (#PCDATA)>
+<!ELEMENT personal_No       (#PCDATA)>
+<!ELEMENT phone_number      (#PCDATA)>
+<!ELEMENT e_mail            (#PCDATA)>
+<!ELEMENT employment_date   (#PCDATA)>
+<!ELEMENT salary            (#PCDATA)>
+<!ELEMENT job_position      (#PCDATA)>
