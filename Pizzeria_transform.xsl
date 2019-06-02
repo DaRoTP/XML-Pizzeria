@@ -9,23 +9,38 @@
 
             <style>
             
-                .bevereges-stripes>tbody>tr:nth-child(odd)>td {
-                background-color: #EDFFF5;
+                body{
+                background-color:#CEDAC8;
                 }
+                .bevereges-stripes>tbody>tr:nth-child(odd)>td {
+                background-color: #EDFFF5;}
+                .bevereges-stripes>tbody>tr:nth-child(even)>td {
+                background-color: #ACFFA8;}
 
                 .jobpos-stripes>tbody>tr:nth-child(odd)>td {
-                background-color: #FFFEF4;
-                }
+                background-color: #FFFEF4;}
+                .jobpos-stripes>tbody>tr:nth-child(even)>td {
+                background-color: #FFF2AE;}
 
+                .employee-stripes>tbody>tr:nth-child(even)>td{
+                background-color: #E4E9FF;}
                 .employee-stripes>tbody>tr:nth-child(odd)>td{
-                background-color: #E4E9FF;
-                }
+                background-color: #C6C3E8;}
 
                 .pizzasDiv{
                 float: left;
                 display: table;
                 width:25%;
                 margins: 0;
+                }
+
+                .margines{
+                margin: auto auto 100px auto;
+                display: table;
+                }
+
+                .label-type{
+                font-size: 10px;
                 }
                 
             </style>
@@ -37,61 +52,122 @@
         <hr/>
         <xsl:for-each select="pizzeria/pizzas/pizza">
             <div class="container pizzasDiv table">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th><xsl:value-of select="pizza_name"/></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <xsl:value-of select="topping[position()>1]"/>
-                                <span>, </span>
-                                <xsl:value-of select="topping[position()>2]"/>
-                                <span>, </span>
-                                <xsl:value-of select="topping[position()>3]"/>
-                                <xsl:value-of select="topping[position()>4]"/>
-                            </td>
-                        </tr>
-                    </tbody>
+                <table class="table employee-stripes table-bordered">
+
+                    <xsl:choose>
+                        <xsl:when test="@pizza_type='spicy'">
+                            <tr class="bg-danger">
+                                <th>
+                                    <xsl:value-of select="pizza_name"/>
+                                    <span class="label-type"><em>  (spicy)</em></span>
+                                </th>
+        
+                            </tr>
+                       </xsl:when>
+                        <xsl:when test="@pizza_type='seafood'">
+                            <tr class="bg-info">
+                                <th>
+                                    <xsl:value-of select="pizza_name"/>
+                                    <span class="label-type"><em>  (seafood)</em></span>
+                                </th>
+                            </tr>
+                        </xsl:when>
+                        <xsl:when test="@pizza_type='mild'">
+                            <tr class="bg-success">
+                                <th>
+                                    <xsl:value-of select="pizza_name"/>
+                                    <span class="label-type"><em>  (mild)</em></span>
+                                </th>
+                            </tr>
+                        </xsl:when>
+                        <xsl:when test="@pizza_type='chicken'">
+                            <tr class="bg-warning">
+                                <th>
+                                    <xsl:value-of select="pizza_name"/>
+                                    <span class="label-type"><em>  (chicken)</em></span>
+                                </th>
+                            </tr>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <tr class="bg-info">
+                                <th>
+                                    <xsl:value-of select="pizza_name"/>
+                                </th>
+                            </tr>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <tr class="employee-stripes">
+                        <td>
+                            <xsl:value-of select="topping[position()>1]"/>
+                            <span>, </span>
+                            <xsl:value-of select="topping[position()>2]"/>
+                            <span>, </span>
+                            <xsl:value-of select="topping[position()>3]"/>
+                            <xsl:value-of select="topping[position()>4]"/>
+                        </td>
+                    </tr>
+                    
                 </table>
+                
             </div>
 
         </xsl:for-each>
 
+
+        
+        <div class="container margines">
         <h2 style="text-align:center">◆ Bevereges ◆</h2>
         <hr/>
-        <table class="table table-striped bevereges-stripes">
-            <tr class="bg-success">
-                <th style="text-align:left">beverage name</th>
-                <th style="text-align:left">price</th>
-                <th style="text-align:left">units</th>
-            </tr>
-            <xsl:for-each select="pizzeria/beverages/beverage">
-            <tr>
-                <td><xsl:value-of select="beverage_name"/></td>
-                <td><xsl:value-of select="price"/></td>
-                <td><xsl:value-of select="units"/></td>
-            </tr>
-            </xsl:for-each>
-        </table>
+            <table class="table table-striped bevereges-stripes">
+                <tr class="bg-success">
+                    <th style="text-align:left">BEVERAGE NAME</th>
+                    <th style="text-align:left">PRICE</th>
+                    <th style="text-align:left">UNITS</th>
+                    <th style="text-align:left">TOTAL COST</th>
+                    <th style="text-align:left">STOCK</th>
+                </tr>
+                <xsl:for-each select="pizzeria/beverages/beverage">
+                
+                    <tr>
+                        <td><xsl:value-of select="beverage_name"/></td>
+                        <td><xsl:value-of select="price"/> <span> zł</span> </td>
+                        
+                        <td><xsl:value-of select="units"/></td>
+                        <td>
+                            <xsl:variable name="price-var" select="price"/>
+                            <xsl:variable name="unit-var" select="units"/>
+                            <xsl:value-of select="format-number($price-var*$unit-var,'#.00')"/>
+                            <span> zł</span>
+                        </td>
+                        <xsl:choose>
+                            <xsl:when test="units &gt; 0">
+                                <td>IN STOCK</td>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <td>OUT OF STOCK</td>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </tr>
+                </xsl:for-each>
+            </table>
+        </div>
 
-
+        <div class="container margines">
         <h2 style="text-align:center">◆ Job Positions ◆</h2>
         <hr/>
-        <table class="table table-striped jobpos-stripes">
-            <tr class="bg-warning">
-                <th style="text-align:left">Position</th>
-                <th style="text-align:left">Position description</th>
-            </tr>
-            <xsl:for-each select="pizzeria/job_positions/job_position">
-            <tr>
-                <td><xsl:value-of select="position_name"/></td>
-                <td><xsl:value-of select="position_description"/></td>
-            </tr>
-            </xsl:for-each>
-        </table>
+            <table class="table table-striped jobpos-stripes">
+                <tr class="bg-warning">
+                    <th style="text-align:left">POSITION</th>
+                    <th style="text-align:left">DESCRIPTION</th>
+                </tr>
+                <xsl:for-each select="pizzeria/job_positions/job_position">
+                <tr>
+                    <td><xsl:value-of select="position_name"/></td>
+                    <td><xsl:value-of select="position_description"/></td>
+                </tr>
+                </xsl:for-each>
+            </table>
+        </div>
 
         <h2 style="text-align:center">◆ Employees ◆</h2>
         <hr/>
@@ -104,10 +180,11 @@
                 <th style="text-align:left">PHONE NUM.</th>
                 <th style="text-align:left">E-MAIL</th>
                 <th style="text-align:left">EMPLOYEMENT DATE</th>
-                <th style="text-align:left">SLARY (ZŁ)</th>
+                <th style="text-align:left">SLARY</th>
             </tr>
         </thead>
             <xsl:for-each select="pizzeria/employees/employee">
+             <xsl:sort select="salary" order="descending"/>
             <tr>
                 <td><xsl:value-of select="name"/></td>
                 <td><xsl:value-of select="surname"/></td>
@@ -115,7 +192,7 @@
                 <td><xsl:value-of select="phone_number"/></td>
                 <td><xsl:value-of select="e_mail"/></td>
                 <td><xsl:value-of select="employment_date"/></td>
-                <td><xsl:value-of select="salary"/></td>
+                <td><xsl:value-of select="salary"/> <span> zł</span></td>
             </tr>
             </xsl:for-each>
         </table>

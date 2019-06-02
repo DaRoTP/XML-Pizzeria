@@ -112,6 +112,15 @@
             <topping>basil</topping>
         </pizza>
 
+        <pizza pizzaID="Senk" pizza_type="chicken">
+            <pizza_name>Duno</pizza_name>
+            <topping>cheese</topping>
+            <topping>tomato</topping>
+            <topping>chicken</topping>
+            <topping>plumbs</topping>
+            <topping>basil</topping>
+        </pizza>
+
     </pizzas>
 
     <beverages>
@@ -125,7 +134,7 @@
         <beverage beverageID="FaTa">
             <beverage_name>Fanta</beverage_name>
             <price currency="PLN">4</price>
-            <units>45</units>
+            <units>0</units>
         </beverage>
 
         <beverage beverageID="SpTe">
