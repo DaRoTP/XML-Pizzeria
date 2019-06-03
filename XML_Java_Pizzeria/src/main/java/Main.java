@@ -22,7 +22,8 @@ public class Main {
             System.out.println("1. View");
             System.out.println("2. Add");
             System.out.println("3. Delete");
-            System.out.println("4. Exit");
+            System.out.println("4. Update");
+            System.out.println("5. Exit");
 
             int choice = bufor.nextInt();
             String strChoice;
@@ -37,13 +38,13 @@ public class Main {
 
                     choice = bufor.nextInt();
                     switch(choice){
-                        case 1: pc.showElements("pizza");
+                        case 1: pc.printPizzas();
                             break;
-                        case 2: pc.showElements("beverage");
+                        case 2: pc.printBeverages();
                             break;
-                        case 3: pc.showElements("job_position");
+                        case 3: pc.printJobPos();
                             break;
-                        case 4: pc.showElements("employee");
+                        case 4: pc.printEmployee();
                             break;
                         default:
                             break;
@@ -60,7 +61,7 @@ public class Main {
                     choice = bufor.nextInt();
                     switch(choice){
                         case 1:{
-                            System.out.println("pizza");
+                            pc.createPizza();
                         }
                         break;
                         case 2:{
@@ -114,9 +115,47 @@ public class Main {
                     }
                 }
                 break;
+                case 4:{
+                    System.out.println("<=========================>");
+                    System.out.println("1. Pizzas");
+                    System.out.println("2. Beverages");
+                    System.out.println("3. Job Positions");
+                    System.out.println("4. Employees");
+
+                    choice = bufor.nextInt();
+                    switch(choice){
+                        case 1:{
+                            System.out.print("ID: ");
+                            strChoice = bufor2.nextLine();
+                            pc.updatePizza(strChoice);
+                        }
+                            break;
+                        case 2: {
+                            System.out.print("ID: ");
+                            strChoice = bufor2.nextLine();
+                            pc.updateBeverage(strChoice);
+                        }
+                            break;
+                        case 3: {
+                            System.out.print("ID: ");
+                            strChoice = bufor2.nextLine();
+                            pc.updateJobPos(strChoice);
+                        }
+                        break;
+                        case 4: {
+                            System.out.print("ID: ");
+                            strChoice = bufor2.nextLine();
+                            pc.updateEmployee(strChoice);
+                        }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                break;
                 default:
                 {
-                    System.out.println("kk");
+                    System.out.println("END");
                     loop = false;
                 }
                 break;

@@ -90,7 +90,7 @@
       <topping>chicken</topping>  
       <topping>ham</topping> 
     </pizza>  
-    <pizza pizzaID="Seno" pizza_type="seafood"> 
+    <pizza pizzaID="Seno" pizza_type="chicken"> 
       <pizza_name>Serano</pizza_name>  
       <topping>cheese</topping>  
       <topping>tomato</topping>  
@@ -105,7 +105,21 @@
       <topping>chicken</topping>  
       <topping>plumbs</topping>  
       <topping>basil</topping> 
-    </pizza> 
+    </pizza>  
+    <pizza pizzaID="chkn" pizza_type="chicken"> 
+      <pizza_name>chikano</pizza_name>  
+      <topping>chicken</topping>  
+      <topping>cheese</topping>  
+      <topping>tomatos</topping>  
+      <topping>mushrooms</topping> 
+    </pizza>  
+    <pizza pizzaID="nmmm" pizza_type="spicy">
+      <pizza_name>Name</pizza_name>
+      <topping>jeden</topping>
+      <topping>dwa</topping>
+      <topping>trzy</topping>
+      <topping>cztery</topping>
+    </pizza>
   </pizzas>  
   <beverages> 
     <beverage beverageID="CoCo"> 
@@ -170,8 +184,8 @@
     </beverage>  
     <beverage beverageID="Mlkk"> 
       <beverage_name>Milk</beverage_name>  
-      <price>4</price>  
-      <units>44</units> 
+      <price>1.22</price>  
+      <units>10</units> 
     </beverage> 
   </beverages>  
   <job_positions> 
@@ -200,8 +214,8 @@
       <position_description>Responsible for taking in customer complaints and managing the restaurant in owners absence</position_description> 
     </job_position>  
     <job_position positionID="Somn"> 
-      <position_name>someone</position_name>  
-      <position_description>does something testing or more</position_description> 
+      <position_name>new name</position_name>  
+      <position_description>test test</position_description> 
     </job_position> 
   </job_positions>  
   <employees> 
@@ -325,15 +339,15 @@
       <salary currency="PLN">5000</salary>  
       <positionID refid="MnGG"/> 
     </employee>  
-    <employee employeeID="RbRy">
-      <name>Roberto</name>
-      <surname>Reyes</surname>
-      <personal_No>85698574532</personal_No>
-      <phone_number prefix="PL">69696969</phone_number>
-      <e_mail>rob@gmail.com</e_mail>
-      <employment_date>2019-08-11</employment_date>
-      <salary>4000</salary>
-      <positionID refid="CSHh"/>
-    </employee>
+    <employee employeeID="RbRy"> 
+      <name>Roberto</name>  
+      <surname>Reyes</surname>  
+      <personal_No>85698574532</personal_No>  
+      <phone_number prefix="PL">69696969</phone_number>  
+      <e_mail>rob@gmail.com</e_mail>  
+      <employment_date>2019-08-11</employment_date>  
+      <salary>500</salary>  
+      <positionID refid="Addd"/> 
+    </employee> 
   </employees> 
 </pizzeria>

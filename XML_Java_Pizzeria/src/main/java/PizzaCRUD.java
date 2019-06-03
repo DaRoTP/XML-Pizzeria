@@ -32,6 +32,60 @@ public class PizzaCRUD {
         }
     }
 
+    public void printJobPos(){
+        List<Node> nodes = document.selectNodes("pizzeria/job_positions/job_position");
+        for( Node node: nodes){
+            System.out.println("\nID# "+node.selectSingleNode("@positionID").getText()+"\n- job position: " + node.selectSingleNode("position_name").getText()
+                    +"\n- description: "+node.selectSingleNode("position_description").getText());
+        }
+    }
+    public void printBeverages(){
+        List<Node> nodes = document.selectNodes("pizzeria/beverages/beverage");
+        for( Node node: nodes){
+            try {
+                System.out.println("\nID# " + node.selectSingleNode("@beverageID").getText()
+                        + "\n- beverage name: " + node.selectSingleNode("beverage_name").getText()
+                        + "\n- units: " + node.selectSingleNode("units").getText()
+                        + "\n- price: (" + node.selectSingleNode("price").selectSingleNode("@currency").getText() + ") " + node.selectSingleNode("price").getText());
+            }
+            catch(NullPointerException e){
+                System.out.println(" ");
+            }
+            }
+    }
+    public void printEmployee(){
+        List<Node> nodes = document.selectNodes("pizzeria/employees/employee");
+        for( Node node: nodes){
+            try {
+                System.out.println("\nID# " + node.selectSingleNode("@employeeID").getText()
+                        + "\n- name: " + node.selectSingleNode("name").getText()
+                        + "\n- surname: " + node.selectSingleNode("surname").getText()
+                        + "\n- personal Number: " + node.selectSingleNode("personal_No").getText()
+                        + "\n- phone Number: (" + node.selectSingleNode("phone_number").selectSingleNode("@prefix").getText()+") "+node.selectSingleNode("phone_number").getText()
+                        + "\n- E-Mail: " + node.selectSingleNode("e_mail").getText()
+                        + "\n- employment date: " + node.selectSingleNode("employment_date").getText()
+                        + "\n- salary: (" + node.selectSingleNode("salary").selectSingleNode("@currency").getText() + ") " + node.selectSingleNode("salary").getText()
+                        + "\n- Job position ID: " + node.selectSingleNode("positionID").selectSingleNode("@refid").getText());
+            }
+            catch(NullPointerException e){
+                System.out.println(" ");
+            }
+            }
+    }
+    public void printPizzas() {
+        List<Node> nodes = document.selectNodes("pizzeria/pizzas/pizza");
+        for (Node node : nodes) {
+            System.out.println("\nID# " + node.selectSingleNode("@pizzaID").getText()
+                    + "\n- type: " + node.selectSingleNode("@pizza_type").getText()
+                    + "\n- name: " + node.selectSingleNode("pizza_name").getText()
+                    + "\n- toppings: ");
+            List<Node> tempNode = node.selectNodes("topping");
+            for (Node tp : tempNode)
+                System.out.print(tp.getText()+", ");
+
+        }
+        System.out.println(" ");
+    }
 
 
     private String getContent(Element element) {
@@ -45,16 +99,41 @@ public class PizzaCRUD {
     }
 
     public void createPizza() throws IOException {
+        Scanner bufor = new Scanner(System.in);
         Node n = document.selectSingleNode("pizzeria/pizzas");
         Element root = (Element) n;
         Element pizza = root.addElement("pizza");
-        Element pizzaName = pizza.addElement("pizza_name");
-        pizzaName.setText("Wdah");
-        pizza.addAttribute("pizzaID", "Wdhh");
-        pizza.addAttribute("pizza_type", "spicy");
 
-        Element topping = pizza.addElement("topping");
-        topping.setText("cheese");
+        Element pizzaName = pizza.addElement("pizza_name");
+
+        System.out.print("Pizza Name: ");
+        pizzaName.setText(bufor.nextLine());
+        System.out.print("Pizza ID: ");
+        String PizzaID = bufor.nextLine();
+        pizza.addAttribute("pizzaID", PizzaID);
+        System.out.print("Pizza type ID: ");
+        pizza.addAttribute("pizza_type", bufor.nextLine());
+
+        while(true){
+            System.out.print("Toppings: ");
+            String chosenToping = bufor.nextLine();
+            if(chosenToping.equals("."))
+                break;
+            else
+            addToppings(PizzaID,chosenToping);
+        }
+
+        save();
+    }
+
+    public void addToppings(String ID,String toppingstr) throws IOException {
+
+        Node n = document.selectSingleNode("pizzeria/pizzas/pizza[@pizzaID='"+ID+"']");
+        Element root = (Element) n;
+        Element topping = root.addElement("topping");
+
+        topping.setText(toppingstr);
+
         save();
     }
 
@@ -163,13 +242,120 @@ public class PizzaCRUD {
             System.out.println(this.getContent(e));
         }
     }
+    public void updateJobPos(String ID) throws IOException {
+        Scanner bufor = new Scanner(System.in);
+        Node n = document.selectSingleNode("pizzeria/job_positions/job_position[@positionID='"+ID+"']");
+        Element root = (Element) n;
+        String answer = "";
 
-//    public void update(String xPath){
-//        Node node = this.document.selectSingleNode("//formula1/engines/engine[manufacter='" + oldManufacter + "']");
-//        Element engine = (Element) node;
-//        engine.element("manufacter").setText(newManufacter);
-//        save();
-//    }
+        System.out.println("write '.' leave as it is");
+        System.out.print("new Name: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("position_name").setText(answer);
+
+        System.out.print("Description: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("position_description").setText(answer);
+
+        save();
+    }
+
+    public void updatePizza(String ID) throws IOException {
+        Scanner bufor = new Scanner(System.in);
+        Node n = document.selectSingleNode("pizzeria/pizzas/pizza[@pizzaID='"+ID+"']");
+        Element root = (Element) n;
+        String answer = "";
+
+        System.out.println("write '.' leave as it is");
+        System.out.print("new pizza name: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("pizza_name").setText(answer);
+
+        System.out.print("new type: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.addAttribute("pizza_type",answer);
+
+        save();
+    }
+
+    public void updateBeverage(String ID) throws IOException {
+        Scanner bufor = new Scanner(System.in);
+        Node n = document.selectSingleNode("pizzeria/beverages/beverage[@beverageID='"+ID+"']");
+        Element root = (Element) n;
+        String answer = "";
+
+        System.out.println("write '.' leave as it is");
+        System.out.print("new beverage name: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("beverage_name").setText(answer);
+
+        System.out.print("new Price: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("price").setText(answer);
+
+        System.out.print("new unit count: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("units").setText(answer);
+        save();
+    }
+
+    public void updateEmployee(String ID) throws IOException {
+        Scanner bufor = new Scanner(System.in);
+        Node n = document.selectSingleNode("pizzeria/employees/employee[@employeeID='"+ID+"']");
+        Element root = (Element) n;
+        String answer = "";
+
+        System.out.println("write '.' leave as it is");
+        System.out.print("new Name: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("name").setText(answer);
+
+        System.out.print("new surname: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("surname").setText(answer);
+
+        System.out.print("new personal Number: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("personal_No").setText(answer);
+
+        System.out.print("new phone number: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("phone_number").setText(answer);
+
+        System.out.print("new E-Mail: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("e_mail").setText(answer);
+
+        System.out.print("new employment date: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("employment_date").setText(answer);
+
+        System.out.print("new salary: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("salary").setText(answer);
+
+        System.out.print("Description: ");
+        answer = bufor.nextLine();
+        if(!answer.equals("."))
+            root.element("positionID").addAttribute("refid",answer);
+
+        save();
+    }
+
 
 
     public void showElements(String element){
