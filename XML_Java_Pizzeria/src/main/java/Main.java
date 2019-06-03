@@ -23,7 +23,8 @@ public class Main {
             System.out.println("2. Add");
             System.out.println("3. Delete");
             System.out.println("4. Update");
-            System.out.println("5. Exit");
+            System.out.println("5. Sort");
+            System.out.println("6. Exit");
 
             int choice = bufor.nextInt();
             String strChoice;
@@ -38,13 +39,13 @@ public class Main {
 
                     choice = bufor.nextInt();
                     switch(choice){
-                        case 1: pc.printPizzas();
+                        case 1: pc.printPizzas(null);
                             break;
-                        case 2: pc.printBeverages();
+                        case 2: pc.printBeverages(null);
                             break;
-                        case 3: pc.printJobPos();
+                        case 3: pc.printJobPos(null);
                             break;
-                        case 4: pc.printEmployee();
+                        case 4: pc.printEmployee(null);
                             break;
                         default:
                             break;
@@ -150,6 +151,34 @@ public class Main {
                             break;
                         default:
                             break;
+                    }
+                }
+                break;
+                case 5:{
+                    System.out.println("<=========================>");
+                    System.out.println("1. Pizza");
+                    System.out.println("2. Beverage");
+                    System.out.println("3. Job Position");
+                    System.out.println("4. Employee");
+
+                    choice = bufor.nextInt();
+                    switch(choice){
+                        case 1:{
+                            pc.sort("pizzeria/pizzas/pizza","pizza");
+                        }
+                        break;
+                        case 2:{
+                            pc.sort("pizzeria/beverages","beverage");
+                        }
+                        break;
+                        case 3:{
+                            pc.sort("pizzeria/job_positions/job_position","jobpos");
+                        }
+                        break;
+                        case 4:{
+                            pc.sort("pizzeria/employees/employee","employee");
+                        }
+                        break;
                     }
                 }
                 break;

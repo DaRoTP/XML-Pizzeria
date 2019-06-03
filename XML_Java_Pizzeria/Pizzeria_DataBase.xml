@@ -113,15 +113,20 @@
       <topping>tomatos</topping>  
       <topping>mushrooms</topping> 
     </pizza>  
-    <pizza pizzaID="nmmm" pizza_type="spicy">
-      <pizza_name>Name</pizza_name>
-      <topping>jeden</topping>
-      <topping>dwa</topping>
-      <topping>trzy</topping>
-      <topping>cztery</topping>
-    </pizza>
+    <pizza pizzaID="nmmm" pizza_type="spicy"> 
+      <pizza_name>Name</pizza_name>  
+      <topping>jeden</topping>  
+      <topping>dwa</topping>  
+      <topping>trzy</topping>  
+      <topping>cztery</topping> 
+    </pizza> 
   </pizzas>  
   <beverages> 
+    <beverage beverageID="SpTe"> 
+      <beverage_name>Sprite</beverage_name>  
+      <price currency="PLN">4</price>  
+      <units>12</units> 
+    </beverage>  
     <beverage beverageID="CoCo"> 
       <beverage_name>Coca-Cola</beverage_name>  
       <price currency="PLN">4</price>  
@@ -131,11 +136,6 @@
       <beverage_name>Fanta</beverage_name>  
       <price currency="PLN">4</price>  
       <units>0</units> 
-    </beverage>  
-    <beverage beverageID="SpTe"> 
-      <beverage_name>Sprite</beverage_name>  
-      <price currency="PLN">4</price>  
-      <units>12</units> 
     </beverage>  
     <beverage beverageID="Frey"> 
       <beverage_name>Freeway</beverage_name>  
@@ -330,7 +330,7 @@
       <positionID refid="Addd"/> 
     </employee>  
     <employee employeeID="ToEl"> 
-      <name>Tom</name>  
+      <name>Toms</name>
       <surname>Ellis</surname>  
       <personal_No>6199880908</personal_No>  
       <phone_number prefix="PL">861245856</phone_number>  
@@ -348,6 +348,16 @@
       <employment_date>2019-08-11</employment_date>  
       <salary>500</salary>  
       <positionID refid="Addd"/> 
-    </employee> 
+    </employee>  
+    <employee employeeID="tete">
+      <name>test</name>
+      <surname>testowy</surname>
+      <personal_No>77777777777</personal_No>
+      <phone_number prefix="PL">85896368</phone_number>
+      <e_mail>ggg@fg.com</e_mail>
+      <employment_date>2018-09-14</employment_date>
+      <salary>4505</salary>
+      <positionID refid="DPss"/>
+    </employee>
   </employees> 
 </pizzeria>

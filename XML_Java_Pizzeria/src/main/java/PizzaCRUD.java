@@ -10,10 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class PizzaCRUD {
 
@@ -24,23 +21,26 @@ public class PizzaCRUD {
         this.document = this.READER.read("Pizzeria_DataBase.xml");
     }
 
-    public void read(String path){
-        List<Node> nodes = this.document.selectNodes(path);
-        for (Node n : nodes) {
-            Element e = (Element) n;
-            System.out.println(this.getContent(e));
-        }
-    }
+    //printing Nodes
+    public void printJobPos(List<Node> tempList){
+        List<Node> nodes;
+        if(tempList == null)
+            nodes = document.selectNodes("pizzeria/job_positions/job_position");
+        else
+            nodes = tempList;
 
-    public void printJobPos(){
-        List<Node> nodes = document.selectNodes("pizzeria/job_positions/job_position");
         for( Node node: nodes){
             System.out.println("\nID# "+node.selectSingleNode("@positionID").getText()+"\n- job position: " + node.selectSingleNode("position_name").getText()
                     +"\n- description: "+node.selectSingleNode("position_description").getText());
         }
     }
-    public void printBeverages(){
-        List<Node> nodes = document.selectNodes("pizzeria/beverages/beverage");
+    public void printBeverages(List<Node> tempList){
+        List<Node> nodes;
+        if(tempList == null)
+            nodes = document.selectNodes("pizzeria/beverages/beverage");
+        else
+            nodes = tempList;
+
         for( Node node: nodes){
             try {
                 System.out.println("\nID# " + node.selectSingleNode("@beverageID").getText()
@@ -53,8 +53,13 @@ public class PizzaCRUD {
             }
             }
     }
-    public void printEmployee(){
-        List<Node> nodes = document.selectNodes("pizzeria/employees/employee");
+    public void printEmployee(List<Node> tempList){
+        List<Node> nodes;
+        if(tempList == null)
+            nodes = document.selectNodes("pizzeria/employees/employee");
+        else
+            nodes = tempList;
+
         for( Node node: nodes){
             try {
                 System.out.println("\nID# " + node.selectSingleNode("@employeeID").getText()
@@ -72,8 +77,13 @@ public class PizzaCRUD {
             }
             }
     }
-    public void printPizzas() {
-        List<Node> nodes = document.selectNodes("pizzeria/pizzas/pizza");
+    public void printPizzas(List<Node> tempList) {
+        List<Node> nodes;
+        if(tempList == null)
+            nodes = document.selectNodes("pizzeria/pizzas/pizza");
+        else
+            nodes = tempList;
+
         for (Node node : nodes) {
             System.out.println("\nID# " + node.selectSingleNode("@pizzaID").getText()
                     + "\n- type: " + node.selectSingleNode("@pizza_type").getText()
@@ -98,6 +108,7 @@ public class PizzaCRUD {
         return stringBuilder.toString();
     }
 
+    //creating nodes
     public void createPizza() throws IOException {
         Scanner bufor = new Scanner(System.in);
         Node n = document.selectSingleNode("pizzeria/pizzas");
@@ -125,7 +136,6 @@ public class PizzaCRUD {
 
         save();
     }
-
     public void addToppings(String ID,String toppingstr) throws IOException {
 
         Node n = document.selectSingleNode("pizzeria/pizzas/pizza[@pizzaID='"+ID+"']");
@@ -177,6 +187,7 @@ public class PizzaCRUD {
 
         save();
     }
+
     public void createEmployee() throws IOException {
         Scanner bufor = new Scanner(System.in);
         Node n = document.selectSingleNode("pizzeria/employees");
@@ -228,20 +239,33 @@ public class PizzaCRUD {
         xmlWriter.close();
     }
 
+    //delete
     public void delete(String xPath) throws IOException {
         Node node = this.document.selectSingleNode(xPath);
         node.detach();
         save();
     }
 
-    public void sort(String xPath) {
+    //sorting
+    public void sort(String xPath,String elementName) {
         List<Node> nodes = this.document.selectNodes(xPath);
-        Collections.sort(nodes, (Node n1, Node n2) -> n1.getStringValue().compareTo(n2.getStringValue()));
-        for (Node n : nodes) {
-            Element e = (Element) n;
-            System.out.println(this.getContent(e));
+        Collections.sort(nodes, (Node n1, Node n2)->n1.getStringValue().compareTo(n2.getStringValue()));
+
+        switch(elementName){
+            case "pizza": printPizzas(nodes);
+            break;
+            case "beverage": printBeverages(nodes);
+                break;
+            case "jobpos": printJobPos(nodes);
+                break;
+            case "employee": printEmployee(nodes);
+                break;
         }
+
+        System.out.println("Sorted");
     }
+
+    //update
     public void updateJobPos(String ID) throws IOException {
         Scanner bufor = new Scanner(System.in);
         Node n = document.selectSingleNode("pizzeria/job_positions/job_position[@positionID='"+ID+"']");
@@ -354,25 +378,6 @@ public class PizzaCRUD {
             root.element("positionID").addAttribute("refid",answer);
 
         save();
-    }
-
-
-
-    public void showElements(String element){
-        switch(element){
-            case  "pizza":
-                read("pizzeria/pizzas/pizza");
-                break;
-            case "beverage":
-                read("pizzeria/beverages/beverage");
-                break;
-            case "job_position":
-                read("pizzeria/job_positions/job_position");
-                break;
-            case "employee":
-                read("pizzeria/employees/employee");
-                break;
-        }
     }
 
 
